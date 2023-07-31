@@ -9,6 +9,15 @@ class App extends Component {
       searchField :''
     };
   }
+
+  onSearch = (event) => {
+    const searchField = event.target.value.toLocaleLowerCase();
+    
+
+    this.setState(()=> {return {searchField}})
+  }
+
+
   //fetching api
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -23,9 +32,11 @@ class App extends Component {
       );
   }
   render() {
+    const {monsters , searchField} = this.state;
+    const {onSearch} = this;
 
-    const fillterMonsters = this.state.monsters.filter((monster) => {
-      return monster.name.toLocaleLowerCase().includes(this.state.searchField);
+    const fillterMonsters = monsters.filter((monster) => {
+      return monster.name.toLocaleLowerCase().includes(searchField);
 
     }
     )
@@ -37,13 +48,7 @@ class App extends Component {
           className="search-box"
           type="search"
           placeholder="SEARCH MONSTERS"
-          onChange={(event) => {
-            const searchField = event.target.value.toLocaleLowerCase();
-            
-
-            this.setState(()=> {return {searchField}})
-          }
-        }
+          onChange={onSearch}
         />
         {fillterMonsters.map((monster) => {
           return (
