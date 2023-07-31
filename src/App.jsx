@@ -5,21 +5,25 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: "ASFAND",
+      monsters: []
     };
+  }
+  //fetching api
+  componentDidMount()
+  {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response) => response.json())
+    .then((users) => this.setState(() => {return {monsters:users}} , () => console.log(this.state)))
   }
   render() {
     return (
-      <>
-        <p>HI {this.state.name}</p>
-        <button className="btn" onClick={() => 
-          this.setState(() => { return {name : 'SALAAR'}},
-          () => {
-              console.log(this.state)
-          })}>
-          CHANGE NAME
-        </button>
-      </>
+      <div className="App">
+        {
+          this.state.monsters.map((monster)=>{
+            return <h1 key={monster.id}>{monster.name}</h1>
+          })
+        }
+      </div>
     );
   }
 }
