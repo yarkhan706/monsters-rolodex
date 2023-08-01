@@ -1,7 +1,39 @@
-p{
+body{
+  margin: 0%;
+  padding: 0%;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  text-align: center;
   color: black;
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(
+    to left,
+     #353A5F 0%,
+     #9ebaf3 100%
+  );
 }
 
-.box{
-  background-color: aquamarine;
+body::-webkit-scrollbar
+{
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track
+{
+  background-color: #353A5F;
+}
+
+body::-webkit-scrollbar-thumb
+{
+   background-color: #9ebaf346;
+}
+
+body::-webkit-scrollbar-thumb:hover
+{
+  background-color: #7986a0bd;
+}
+.App h1
+{
+  font-size: 4rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

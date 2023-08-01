@@ -1,0 +1,38 @@
+.card-list
+{
+    width: 60vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card-container
+{
+    background-color: rgba(243, 243, 243, 0.041);
+    border: 1px solid rgb(56, 56, 58);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transform: translateZ(0);
+    transition: 0.25s ease-out;
+    align-items: center;
+    justify-content: center;
+
+}
+.card-container img
+{
+    height: 250px;
+    width: 250px;
+}
+
+
+.card-container:hover
+{
+    transform: scale(1.05);
+    transition: 0.25s ease-out;
+}
