@@ -7,15 +7,22 @@ const App = () => {
   console.log("render")
   const [searchField, setsearchField] = useState('');
   const[monsters,setmonsters] = useState([])
+  const[fillterMonsters, setfillterMonsters] = useState(monsters);
   const onSearch = (event) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
     setsearchField(searchFieldString);
   };
   console.log(searchField)
   
-  const fillterMonsters = monsters.filter(monster => {
-    return monster.name.toLocaleLowerCase().includes(searchField)
-  })
+
+  useEffect(()=>
+  {
+    const newFillterMonsters = monsters.filter(monster => {
+      return monster.name.toLocaleLowerCase().includes(searchField)
+    })
+    setfillterMonsters(newFillterMonsters)
+  },[monsters,searchField])
+  
     
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
