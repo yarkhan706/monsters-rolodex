@@ -4,7 +4,6 @@ import CardList from "./components/card-list/card-list.component";
 import SearchBox from "./components/search-box/search-box.component";
 
 const App = () => {
-  console.log("render")
   const [searchField, setsearchField] = useState('');
   const[monsters,setmonsters] = useState([])
   const[fillterMonsters, setfillterMonsters] = useState(monsters);
@@ -40,7 +39,6 @@ const App = () => {
         placeholder="search monsters"
         className="search-box-monsters"
       />
-
       <CardList monsters = {fillterMonsters}/>
     </div>
   );
