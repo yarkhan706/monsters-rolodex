@@ -9,6 +9,7 @@ class CardList extends Component {
         {monsters.map((monster) => {
            
           return (
+            
             <Card monsters = {monster} />
           );
         })}
